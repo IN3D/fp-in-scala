@@ -1,4 +1,6 @@
 object Math {
+  // NOTE: I should come back to this and update it, I'm sure that I can get
+  // tighten this function up.
   def fibonacci(n: Int): Int = {
     @annotation.tailrec
     def go(i: Int, curr: Int, prev: Int):Int = {
