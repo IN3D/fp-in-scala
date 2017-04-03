@@ -121,4 +121,16 @@ object List {
   // Exercise 18
   def map[A,B](as: List[A])(f: A => B): List[B] =
     foldRightOptimized(as, List[B]())((h,t) => Cons(f(h),t))
+
+  // Exercise 19
+  def filter[A](as: List[A])(f: A => Boolean): List[A] =
+    foldRightOptimized(as, List[A]())((h,t) =>
+      f(h) match {
+        case true  => Cons(h,t)
+        case false => t
+      })
+
+  // Exercise 20
+  def flatMap[A,B](as: List[A])(f: A => List[B]) =
+    concat(map(l)(f))
 }
