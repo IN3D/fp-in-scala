@@ -107,7 +107,18 @@ object List {
     foldRightOptimized(l, r)(Cons(_,_))
 
   // Exercise 15
-  // foldRightOptimized(lss, List[A]())((acc, ls) => appendOptimized(acc, ls))
   def concat[A](lss: List[List[A]]): List[A] =
     foldRightOptimized(lss, List[A]())(appendOptimized)
+
+  // Exercise 16
+  def addOne(ns: List[Int]): List[Int] =
+    foldRightOptimized(ns, List[Int]())((h,t) => Cons(h+1,t))
+
+  // Exercise 17
+  def doubleToString(ds: List[Double]): List[String] =
+    foldRightOptimized(ds, List[String]())((h,t) => Cons(h.toString,t))
+
+  // Exercise 18
+  def map[A,B](as: List[A])(f: A => B): List[B] =
+    foldRightOptimized(as, List[B]())((h,t) => Cons(f(h),t))
 }
